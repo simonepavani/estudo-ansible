@@ -1,0 +1,17 @@
+---
+- name: Criando um usuário e grupo
+  hosts: localhost
+  become: yes
+  gather_facts: yes
+  tasks:
+    - name: Verfica se o grupo basquete existe
+      group:
+        name: basquete
+        state: present
+
+    - name: Criando o usuário
+      user:
+        name: uJogadorBasquete
+        comment: Jogador Basquete
+        uid: 1040
+        group: basquete

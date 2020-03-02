@@ -1,0 +1,12 @@
+---
+- name: Upload Simple File
+  hosts: localhost
+  become: yes
+  gather_facts: yes
+  tasks:
+    - name: Upload file
+      template:
+        src: ./teste.txt
+        dest: /usr/src
+        mode: 0777
+      register: upload_file
